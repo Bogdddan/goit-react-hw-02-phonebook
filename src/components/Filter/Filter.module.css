@@ -1,0 +1,10 @@
+.filterDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 5px;
+}
