@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import css from '../ContactInput.module.css';
 import { Filter } from "./Filter/Filter";
+import ContactList from "./ContactList/ContactList";
+import Form from "./Form/Form";
 
 export class App extends Component {
   state = {
@@ -79,24 +81,19 @@ export class App extends Component {
             <button type="submit">Add Contact</button>
           </div>
         </form>
+        <Form  
+        
+        />
 
         <Filter 
           value={this.state.filter} 
           onChange={this.changeFilter}
         />
-
-        <div>
-          <ul>
-            {filterContacts.map(contact => (
-              <li key={contact.id}>
-                <p>
-                  Name: {contact.name}, Number: {contact.number}
-                </p>
-                <button type="button" onClick={() => this.handleDelete(contact.id)}>Delete</button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ContactList
+          filterContacts={filterContacts}
+          handleDelete={this.handleDelete}
+        />
+        
       </div>
     );
   }
