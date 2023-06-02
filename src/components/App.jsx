@@ -1,4 +1,3 @@
-// App.js
 import React, { Component } from "react";
 import css from "../ContactInput.module.css";
 import { Filter } from "./Filter/Filter";

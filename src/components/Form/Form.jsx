@@ -1,4 +1,3 @@
-// Form.js
 import React, { Component } from "react";
 import css from "./Form.module.css";
 
@@ -21,10 +20,8 @@ class Form extends Component {
 
     const { name, number } = this.state;
 
-    // Виклик функції зовнішнього компонента для обробки подання форми
     this.props.handleSubmitForm(name, number);
 
-    // Очищення полів форми
     this.setState({
       name: "",
       number: "",
