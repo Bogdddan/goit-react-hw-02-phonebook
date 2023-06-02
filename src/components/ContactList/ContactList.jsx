@@ -17,4 +17,5 @@ const ContactList = ({ filterContacts, handleDelete }) => {
     );
 };
 
+
 export default ContactList;
