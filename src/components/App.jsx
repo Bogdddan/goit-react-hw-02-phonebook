@@ -52,48 +52,27 @@ export class App extends Component {
   }
 
   render() {
-    const filterContacts = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter.toLowerCase()));
+    const { name, number, filter, contacts } = this.state;
+    const filterContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
 
     return (
-      <div>
-        <form className={css.form} onSubmit={this.handleSubmitForm}>
-          <p>Name</p>
-          <div className={css.qwerty}>
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleInputChange}
-              name="name"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              required
-            />
-            <p>Number</p>
-            <input
-              type="text"
-              value={this.state.number}
-              onChange={this.handleInputChange}
-              name="number"
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-              required
-            />
-            <button type="submit">Add Contact</button>
-          </div>
-        </form>
-        <Form  
-        
+      <div className={css.container}>
+        <Form
+          name={name}
+          number={number}
+          handleInputChange={this.handleInputChange}
+          handleSubmitForm={this.handleSubmitForm}
         />
 
-        <Filter 
-          value={this.state.filter} 
+        <Filter
+          value={filter}
           onChange={this.changeFilter}
         />
+
         <ContactList
           filterContacts={filterContacts}
           handleDelete={this.handleDelete}
         />
-        
       </div>
     );
   }
