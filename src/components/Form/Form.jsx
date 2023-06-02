@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import css from './Form.css';
+import css from "./Form.module.css";
 
 const Form = ({ name, number, handleInputChange, handleSubmitForm }) => {
   return (
@@ -31,10 +30,5 @@ const Form = ({ name, number, handleInputChange, handleSubmitForm }) => {
     </form>
   );
 };
-
-Form.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.number,
-}
 
 export default Form;
